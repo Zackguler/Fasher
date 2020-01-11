@@ -1,0 +1,6 @@
+framework module Pods_Fasher {
+  umbrella header "Pods-Fasher-umbrella.h"
+
+  export *
+  module * { export * }
+}
