@@ -6,6 +6,8 @@
 //  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
 //
 
+import FacebookLogin
+import Firebase
 import UIKit
 
 class ProfileViewController: UIViewController {
@@ -13,7 +15,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        
+        let size = CGRect(x: 38, y: 397, width: 300, height: 38)
+        let loginButton = FBLoginButton(frame: size, permissions: [.publicProfile])
+        loginButton.delegate = self
+        
+        view.addSubview(loginButton)
     }
     
 
@@ -27,4 +35,24 @@ class ProfileViewController: UIViewController {
     }
     */
 
+}
+
+extension ProfileViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        print("logged")
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("profileview logout")
+        do {
+            try Auth.auth().signOut()
+            print("profileview show login")
+            performSegue(withIdentifier: "showLogin", sender: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
+    
+    
 }

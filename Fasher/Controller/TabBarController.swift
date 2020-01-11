@@ -6,6 +6,8 @@
 //  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
 //
 
+import Firebase
+import FacebookLogin
 import UIKit
 
 class TabBarController: UITabBarController {
@@ -13,7 +15,21 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if Auth.auth().currentUser == nil {
+            print("tabbar showLogin segue run")
+            performSegue(withIdentifier: "showLogin", sender: nil)
+        } else {
+            let currentUser = Auth.auth().currentUser
+            print("Name", currentUser?.displayName)
+        }
+        
+        
     }
     
 

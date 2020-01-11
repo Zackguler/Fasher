@@ -41,6 +41,22 @@
             </objects>
             <point key="canvasLocation" x="1244.9275362318842" y="537.05357142857144"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="z09-ee-bQx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="tJY-at-0wL" customClass="LoginViewController" customModule="Fasher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u1Z-bc-6Aw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4XM-Rd-xwC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aBf-yR-xm6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9I-Di-CFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2507" y="147"/>
+        </scene>
         <!--Home-->
         <scene sceneID="HN6-8u-eU5">
             <objects>
@@ -60,7 +76,7 @@
         <!--Profile-->
         <scene sceneID="ZF0-f7-Zvy">
             <objects>
-                <viewController id="afF-OB-QlS" userLabel="Profile" customClass="ProfileViewController" customModule="Fasher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="afF-OB-QlS" userLabel="Profile" customClass="ProfileViewController" customModule="Fasher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lPT-cX-Edy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +84,9 @@
                         <viewLayoutGuide key="safeArea" id="v6j-T0-wPV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="iIp-g2-ynZ"/>
+                    <connections>
+                        <segue destination="tJY-at-0wL" kind="showDetail" identifier="showLogin" id="YaP-O8-Khd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktF-jw-QLD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,6 +96,7 @@
         <scene sceneID="cli-wV-iVb">
             <objects>
                 <tabBarController id="LDZ-iY-wvE" customClass="TabBarController" customModule="Fasher" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gQc-XM-fR1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="25h-df-gDc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -86,6 +106,7 @@
                         <segue destination="E20-fv-fwF" kind="relationship" relationship="viewControllers" id="Zaq-AA-cAg"/>
                         <segue destination="Xgi-5g-org" kind="relationship" relationship="viewControllers" id="Zcv-Xs-uCX"/>
                         <segue destination="afF-OB-QlS" kind="relationship" relationship="viewControllers" id="Zmw-Sq-iFp"/>
+                        <segue destination="tJY-at-0wL" kind="showDetail" identifier="showLogin" id="245-I4-L66"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyZ-bb-CJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,4 +114,7 @@
             <point key="canvasLocation" x="-139" y="418"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YaP-O8-Khd"/>
+    </inferredMetricsTieBreakers>
 </document>
