@@ -14,14 +14,32 @@
                     <view key="view" contentMode="scaleToFill" id="aMN-eC-vHc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4H-sE-wfy">
+                                <rect key="frame" x="20" y="74" width="374" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-Ep-gO4">
+                                <rect key="frame" x="0.0" y="483" width="414" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.72601461410522461" blue="0.0028352381195873022" alpha="0.37934639084507044" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Import Image"/>
+                                <connections>
+                                    <action selector="importImage:" destination="Xgi-5g-org" eventType="touchUpInside" id="ael-cR-tw1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gZm-by-fzP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" id="Xk3-Mi-AdO"/>
+                    <connections>
+                        <outlet property="myImageView" destination="C4H-sE-wfy" id="6ah-uf-WPN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uak-aM-FHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245" y="538"/>
+            <point key="canvasLocation" x="1244.9275362318842" y="537.05357142857144"/>
         </scene>
         <!--Home-->
         <scene sceneID="HN6-8u-eU5">

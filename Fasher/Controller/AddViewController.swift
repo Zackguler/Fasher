@@ -8,8 +8,30 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
-
+class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    @IBOutlet weak var myImageView: UIImageView!
+    @IBAction func importImage(_ sender: Any)
+    {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerController.SourceType.camera
+        image.allowsEditing = false
+        self.present(image, animated: true){
+//            after its complete
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            myImageView.image = image
+        }
+        else
+        {
+//            error message
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
