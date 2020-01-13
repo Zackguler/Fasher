@@ -6,47 +6,61 @@
 //  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
 //
 
+import FirebaseDatabase
+import FirebaseStorage
 import UIKit
 
 class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    @IBOutlet weak var myImageView: UIImageView!
-    @IBAction func importImage(_ sender: Any)
-    {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.camera
-        image.allowsEditing = false
-        self.present(image, animated: true){
-//            after its complete
-        }
-    }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            myImageView.image = image
-        }
-        else
-        {
-//            error message
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var myImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        databaseTest()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func databaseTest() {
+        print("Database test")
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.setValue(["username": "test"])
     }
-    */
+    
+    private func uploadImageFile(_ image: UIImage) {
+        print("Storage test")
+
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        let imageRef = storageRef.child("images/image.jpg")
+        
+        imageRef.putData((image.pngData())!)
+    }
+    
+    @IBAction func importImage(_ sender: Any) {
+        let image = UIImagePickerController()
+        
+        image.delegate = self
+        image.sourceType = UIImagePickerController.SourceType.camera
+        image.allowsEditing = false
+        
+        self.present(image, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            myImageView.image = image
+            uploadImageFile(image)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+
 
 }

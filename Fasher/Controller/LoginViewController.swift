@@ -15,27 +15,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let size = CGRect(x: 38, y: 397, width: 300, height: 38)
         let loginButton = FBLoginButton(frame: size, permissions: [.publicProfile])
         loginButton.delegate = self
         
         view.addSubview(loginButton)
     }
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -55,7 +40,6 @@ extension LoginViewController: LoginButtonDelegate {
             self.dismiss(animated: true, completion: nil)
         }
         print("finish")
-        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
