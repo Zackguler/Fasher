@@ -34,8 +34,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
 
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        
-        let imageRef = storageRef.child("images/image.jpg")
+        let date = Date()
+        let imageName = "image\(date).jpg"
+        let imageRef = storageRef.child("images/\(imageName)")
         
         imageRef.putData((image.pngData())!)
     }
