@@ -2,8 +2,8 @@
 //  UserUploadCell.swift
 //  Fasher
 //
-//  Created by Hüseyin İyibaş on 25.01.2020.
-//  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
+//  Created by Zekeriya Semih Güler on 25.01.2020.
+//  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 
 import Kingfisher
