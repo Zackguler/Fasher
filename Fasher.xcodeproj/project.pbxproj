@@ -19,6 +19,8 @@
 		1D0EB16223C9DEFB0008E5E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EB16123C9DEFB0008E5E0 /* ProfileViewController.swift */; };
 		1D0EB16423CA08240008E5E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D0EB16323CA08240008E5E0 /* GoogleService-Info.plist */; };
 		1D0EB16623CA3C260008E5E0 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EB16523CA3C260008E5E0 /* Authentication.swift */; };
+		1D5C40F223DC827800025BF3 /* UserUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C40F023DC827800025BF3 /* UserUploadCell.swift */; };
+		1D5C40F323DC827800025BF3 /* UserUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C40F123DC827800025BF3 /* UserUploadCell.xib */; };
 		9A8870FE65DEA798B12DE832 /* Pods_Fasher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		1D0EB16123C9DEFB0008E5E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1D0EB16323CA08240008E5E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D0EB16523CA3C260008E5E0 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		1D5C40F023DC827800025BF3 /* UserUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUploadCell.swift; sourceTree = "<group>"; };
+		1D5C40F123DC827800025BF3 /* UserUploadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserUploadCell.xib; sourceTree = "<group>"; };
 		85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fasher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFD10620579C82F896DF278 /* Pods-Fasher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.release.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.release.xcconfig"; sourceTree = "<group>"; };
 		D38A67961436E5A700CC2935 /* Pods-Fasher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.debug.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1D0EB14023C9D3CE0008E5E0 /* Main.storyboard */,
+				1D5C40F123DC827800025BF3 /* UserUploadCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 				1D0EB15D23C9DD940008E5E0 /* TabBarController.swift */,
 				1D0EB15F23C9DDB30008E5E0 /* HomeViewController.swift */,
 				1D0EB16123C9DEFB0008E5E0 /* ProfileViewController.swift */,
+				1D5C40F023DC827800025BF3 /* UserUploadCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5C40F323DC827800025BF3 /* UserUploadCell.xib in Resources */,
 				1D0EB14723C9D3D20008E5E0 /* LaunchScreen.storyboard in Resources */,
 				1D0EB16423CA08240008E5E0 /* GoogleService-Info.plist in Resources */,
 				1D0EB14423C9D3D20008E5E0 /* Assets.xcassets in Resources */,
@@ -283,6 +290,7 @@
 			files = (
 				1D0EB15C23C9DCA30008E5E0 /* AddViewController.swift in Sources */,
 				1D0EB15923C9D9270008E5E0 /* LoginViewController.swift in Sources */,
+				1D5C40F223DC827800025BF3 /* UserUploadCell.swift in Sources */,
 				1D0EB13B23C9D3CE0008E5E0 /* AppDelegate.swift in Sources */,
 				1D0EB15E23C9DD940008E5E0 /* TabBarController.swift in Sources */,
 				1D0EB16223C9DEFB0008E5E0 /* ProfileViewController.swift in Sources */,

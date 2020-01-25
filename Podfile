@@ -16,5 +16,6 @@ pod 'FBSDKCoreKit'
 pod 'FacebookLogin'
 pod 'FacebookCore'
 pod 'FBSDKLoginKit'
+pod 'Kingfisher', '~> 5.0'
 
 end
