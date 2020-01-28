@@ -62,6 +62,29 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     
     
+    @IBAction func importImageGalery(_ sender: Any) {
+        
+        let image = UIImagePickerController()
+            
+            image.delegate = self
+            image.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+            image.allowsEditing = false
+            
+            self.present(image, animated: true)
+        }
+        
+        func imagePickerGaleryController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                myImageView.image = image
+                uploadImageFile(image)
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
 
 
-}
+

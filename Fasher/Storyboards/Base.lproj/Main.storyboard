@@ -28,6 +28,15 @@
                                     <action selector="importImage:" destination="Xgi-5g-org" eventType="touchUpInside" id="ael-cR-tw1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33t-Mp-pUO">
+                                <rect key="frame" x="-9" y="547" width="423" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.72601461410522461" blue="0.0028352381195873022" alpha="0.37934639079999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Import Image From Galery"/>
+                                <connections>
+                                    <action selector="importImageGalery:" destination="Xgi-5g-org" eventType="touchUpInside" id="fPg-1d-dUm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gZm-by-fzP"/>
@@ -39,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uak-aM-FHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244.9275362318842" y="537.05357142857144"/>
+            <point key="canvasLocation" x="1244.9275362318842" y="536.41304347826087"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="z09-ee-bQx">
