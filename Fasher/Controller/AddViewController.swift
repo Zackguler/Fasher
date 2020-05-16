@@ -10,14 +10,20 @@ import FirebaseDatabase
 import FirebaseStorage
 import UIKit
 
-class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
+class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarControllerDelegate {
+    // MARK: IBOUTLET
     @IBOutlet weak var myImageView: UIImageView!
+    
+    // MARK: IBACTION
+    
+    // MARK: Variables
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        databaseTest()
+        // databaseTest()
+        
     }
     
     private func databaseTest() {
@@ -65,26 +71,22 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     @IBAction func importImageGalery(_ sender: Any) {
         
         let image = UIImagePickerController()
-            
-            image.delegate = self
-            image.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
-            image.allowsEditing = false
-            
-            self.present(image, animated: true)
-        }
         
-        func imagePickerGaleryController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                myImageView.image = image
-                uploadImageFile(image)
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-        }
+        image.delegate = self
+        image.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+        image.allowsEditing = false
         
+        self.present(image, animated: true)
     }
     
-
-
-
+    func imagePickerGaleryController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            myImageView.image = image
+            uploadImageFile(image)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}

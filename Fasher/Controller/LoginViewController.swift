@@ -6,51 +6,34 @@
 //  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 
-import FacebookLogin
 import Firebase
 import UIKit
 
 class LoginViewController: UIViewController {
+    // MARK: IBOUTLET
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    // MARK: IBACTION
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+        homeViewController.modalPresentationStyle = .overFullScreen
+        self.present(homeViewController, animated: true)
+    }
+    
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    // MARK: Variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let size = CGRect(x: 38, y: 397, width: 300, height: 38)
-        let loginButton = FBLoginButton(frame: size, permissions: [.publicProfile])
-        loginButton.delegate = self
-        
-        view.addSubview(loginButton)
     }
     
 }
-
-extension LoginViewController: LoginButtonDelegate {
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        print("login")
-        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-            if let error = error {
-                print("Errorrr", error)
-                return
-            }
-            print(authResult?.user.displayName)
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-        print("finish")
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("logout")
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print("erorrrr", signOutError)
-        }
-            
-    }
-}
-
-

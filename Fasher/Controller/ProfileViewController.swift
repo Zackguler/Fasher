@@ -6,7 +6,6 @@
 //  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 
-import FacebookLogin
 import Firebase
 import Kingfisher
 import UIKit
@@ -15,9 +14,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var facebookLogoutView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var imageView: UIImageView!
     
     var userUploads: [StorageReference?] = []
     
@@ -50,7 +47,6 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController {
     
     private func setView() {
-        addFacebookButton()
         setProfilePicture()
         setDisplayName()
         setCollectionViewLayout()
@@ -64,14 +60,6 @@ extension ProfileViewController {
 }
 
 extension ProfileViewController {
-    
-    private func addFacebookButton() {
-        let size = CGRect(x: 0, y: 0, width: 300, height: 38)
-        let loginButton = FBLoginButton(frame: size, permissions: [.publicProfile])
-        loginButton.delegate = self
-        
-        facebookLogoutView.addSubview(loginButton)
-    }
     
     private func setProfilePicture() {
         if let imageURL = Auth.auth().currentUser?.photoURL {
@@ -95,25 +83,6 @@ extension ProfileViewController {
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-}
-
-extension ProfileViewController: LoginButtonDelegate {
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        print("logged")
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("profileview logout")
-        do {
-            try Auth.auth().signOut()
-            print("profileview show login")
-            performSegue(withIdentifier: "showLogin", sender: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
