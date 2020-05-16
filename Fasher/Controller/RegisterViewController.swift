@@ -12,7 +12,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     // MARK: IBOUTLET
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextView!
     @IBOutlet weak var retypePasswordTextField: UITextField!
     @IBOutlet weak var informationLabel: UILabel!
     

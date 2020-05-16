@@ -16,6 +16,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+       
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+           
+        } catch let signOutError{
+            print(signOutError)
+        }
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "LoginViewController")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+           
+    
+    
     var userUploads: [StorageReference?] = []
     
     override func viewDidLoad() {
@@ -43,6 +60,7 @@ class ProfileViewController: UIViewController {
     }
 
 }
+
 
 extension ProfileViewController {
     
