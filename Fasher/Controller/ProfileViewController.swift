@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
             print(signOutError)
         }
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "LoginViewController")
+        let vc = storyboard.instantiateViewController(identifier: "MainVC")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
@@ -51,12 +51,10 @@ class ProfileViewController: UIViewController {
                 print("prefix", prefix)
             }
             for item in result.items {
-                print("item", item)
                 self.userUploads.append(item)
                 self.collectionView.reloadData()
             }
         }
-        print("uuid", Auth.auth().currentUser?.uid)
     }
 
 }
@@ -106,7 +104,6 @@ extension ProfileViewController {
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(userUploads.count)
         return userUploads.count
     }
     
@@ -122,7 +119,6 @@ extension ProfileViewController: UICollectionViewDataSource {
                     print("error", error)
                 } else {
                     if let url = url {
-                        print("urlll", url)
                         cell.setCell(url)
                     }
                     

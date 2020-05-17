@@ -8,15 +8,29 @@
 
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 import UIKit
 
 class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     // MARK: Variables
     var previousIndex = 0
+    var ref: DatabaseReference!
+    let userID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
+        // current user
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            
+            let value = snapshot.value as? NSDictionary
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        // all users
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +40,7 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImageP
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex != 1 {
+        if tabBarController.selectedIndex != 2 {
             previousIndex = tabBarController.selectedIndex
         } else {
             tabBarController.selectedIndex = previousIndex
@@ -60,8 +74,6 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImageP
     }
     
     private func uploadImageFile(_ image: UIImage) {
-        print("Storage test")
-
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let date = Date()

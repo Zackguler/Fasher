@@ -19,11 +19,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     // MARK: Variables
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpElements()
+        ref = Database.database().reference()
     }
     func setUpElements() {
         
@@ -90,9 +92,12 @@ class RegisterViewController: UIViewController {
                         self.showError("Error creating user")
                     }
                     else {
-                        
+                        self.ref.child("users/\(result!.user.uid)/firstName").setValue(firstName)
+                        self.ref.child("users/\(result!.user.uid)/lastName").setValue(lastName)
+                        self.ref.child("users/\(result!.user.uid)/email").setValue(email.lowercased())
                         // User was created successfully, now store the first name and last name
                         let db = Firestore.firestore()
+                        
                         
                         db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
                             
@@ -105,11 +110,7 @@ class RegisterViewController: UIViewController {
                         // Transition to the home screen
                         self.transitionToHome()
                     }
-                    
                 }
-                
-                
-                
             }
         }
         
@@ -120,12 +121,10 @@ class RegisterViewController: UIViewController {
         }
         
         func transitionToHome() {
-            
-            let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-            
-            view.window?.rootViewController = homeViewController
-            view.window?.makeKeyAndVisible()
-            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+            homeViewController.modalPresentationStyle = .overFullScreen
+            self.present(homeViewController, animated: true)
         }
         
     }

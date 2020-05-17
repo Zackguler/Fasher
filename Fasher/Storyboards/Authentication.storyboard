@@ -101,11 +101,11 @@
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="160.59782608695653"/>
         </scene>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="cB4-kE-asm">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="Gdg-1t-iiI" customClass="ViewController" customModule="Fasher" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VVd-Xb-M2E" customClass="ViewController">
+                <viewController storyboardIdentifier="MainVC" id="Gdg-1t-iiI" customClass="MainVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VVd-Xb-M2E" customClass="MainVC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -171,7 +171,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuc-tZ-olx">
                                         <rect key="frame" x="0.0" y="60" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USq-cP-c4s">
                                         <rect key="frame" x="0.0" y="120" width="334" height="40"/>

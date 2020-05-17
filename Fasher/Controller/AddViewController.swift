@@ -27,7 +27,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     
     private func databaseTest() {
-        print("Database test")
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -36,8 +35,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     
     private func uploadImageFile(_ image: UIImage) {
-        print("Storage test")
-
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let date = Date()

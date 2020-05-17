@@ -23,8 +23,11 @@
 		1D5C40F323DC827800025BF3 /* UserUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C40F123DC827800025BF3 /* UserUploadCell.xib */; };
 		612D6857246605D200EA3459 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D6856246605D200EA3459 /* Authentication.storyboard */; };
 		612D685924660AAC00EA3459 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D685824660AAC00EA3459 /* RegisterViewController.swift */; };
+		61EC6B48247183AF00FC569A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B47247183AF00FC569A /* SearchViewController.swift */; };
+		61EC6B4A247183BB00FC569A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B49247183BB00FC569A /* NotificationViewController.swift */; };
+		61EC6B4C2471AAA200FC569A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B4B2471AAA200FC569A /* UserCell.swift */; };
 		9A8870FE65DEA798B12DE832 /* Pods_Fasher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */; };
-		A141437A2470EA5E00C22E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14143792470EA5E00C22E57 /* ViewController.swift */; };
+		A141437A2470EA5E00C22E57 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14143792470EA5E00C22E57 /* MainVC.swift */; };
 		A1D03BDE2470D5B500D68B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D03BDC2470D5B500D68B71 /* Constants.swift */; };
 		A1D03BDF2470D5B500D68B71 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D03BDD2470D5B500D68B71 /* Utilities.swift */; };
 /* End PBXBuildFile section */
@@ -48,9 +51,12 @@
 		1D5C40F123DC827800025BF3 /* UserUploadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserUploadCell.xib; sourceTree = "<group>"; };
 		612D6856246605D200EA3459 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		612D685824660AAC00EA3459 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		61EC6B47247183AF00FC569A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		61EC6B49247183BB00FC569A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		61EC6B4B2471AAA200FC569A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fasher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFD10620579C82F896DF278 /* Pods-Fasher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.release.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.release.xcconfig"; sourceTree = "<group>"; };
-		A14143792470EA5E00C22E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A14143792470EA5E00C22E57 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		A1D03BDC2470D5B500D68B71 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1D03BDD2470D5B500D68B71 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D38A67961436E5A700CC2935 /* Pods-Fasher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.debug.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,10 +98,7 @@
 				A1D03BDB2470D5B500D68B71 /* Helpers */,
 				1D0EB15423C9D6140008E5E0 /* Services */,
 				1D0EB15323C9D6020008E5E0 /* Resources */,
-				1D0EB15223C9D5E80008E5E0 /* Components */,
 				1D0EB15123C9D5C70008E5E0 /* Controller */,
-				1D0EB15023C9D5C20008E5E0 /* View */,
-				1D0EB14F23C9D5BD0008E5E0 /* Model */,
 				1D0EB14E23C9D5A40008E5E0 /* Storyboards */,
 				1D0EB13A23C9D3CE0008E5E0 /* AppDelegate.swift */,
 				1D0EB13C23C9D3CE0008E5E0 /* SceneDelegate.swift */,
@@ -116,40 +119,22 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		1D0EB14F23C9D5BD0008E5E0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1D0EB15023C9D5C20008E5E0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1D0EB15123C9D5C70008E5E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				1D0EB15723C9D9270008E5E0 /* LoginViewController.swift */,
+				61EC6B4B2471AAA200FC569A /* UserCell.swift */,
 				1D0EB15B23C9DCA30008E5E0 /* AddViewController.swift */,
 				1D0EB15D23C9DD940008E5E0 /* TabBarController.swift */,
 				1D0EB15F23C9DDB30008E5E0 /* HomeViewController.swift */,
 				1D0EB16123C9DEFB0008E5E0 /* ProfileViewController.swift */,
 				1D5C40F023DC827800025BF3 /* UserUploadCell.swift */,
 				612D685824660AAC00EA3459 /* RegisterViewController.swift */,
-				A14143792470EA5E00C22E57 /* ViewController.swift */,
+				A14143792470EA5E00C22E57 /* MainVC.swift */,
+				61EC6B47247183AF00FC569A /* SearchViewController.swift */,
+				61EC6B49247183BB00FC569A /* NotificationViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		1D0EB15223C9D5E80008E5E0 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		1D0EB15323C9D6020008E5E0 /* Resources */ = {
@@ -317,10 +302,13 @@
 				612D685924660AAC00EA3459 /* RegisterViewController.swift in Sources */,
 				1D0EB15923C9D9270008E5E0 /* LoginViewController.swift in Sources */,
 				1D5C40F223DC827800025BF3 /* UserUploadCell.swift in Sources */,
+				61EC6B4A247183BB00FC569A /* NotificationViewController.swift in Sources */,
 				1D0EB13B23C9D3CE0008E5E0 /* AppDelegate.swift in Sources */,
 				A1D03BDF2470D5B500D68B71 /* Utilities.swift in Sources */,
+				61EC6B4C2471AAA200FC569A /* UserCell.swift in Sources */,
 				1D0EB15E23C9DD940008E5E0 /* TabBarController.swift in Sources */,
-				A141437A2470EA5E00C22E57 /* ViewController.swift in Sources */,
+				61EC6B48247183AF00FC569A /* SearchViewController.swift in Sources */,
+				A141437A2470EA5E00C22E57 /* MainVC.swift in Sources */,
 				1D0EB16223C9DEFB0008E5E0 /* ProfileViewController.swift in Sources */,
 				1D0EB13D23C9D3CE0008E5E0 /* SceneDelegate.swift in Sources */,
 				1D0EB16023C9DDB30008E5E0 /* HomeViewController.swift in Sources */,
