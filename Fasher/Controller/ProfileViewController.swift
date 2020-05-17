@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        self.ref.child("users/\(uid)/followed/test").setValue("true")
+        // TODO: self.ref.child("users/\(uid)/followed/test").setValue("true")
     }
 }
 
