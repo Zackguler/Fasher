@@ -202,24 +202,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-eE-MOM">
-                                <rect key="frame" x="15" y="195" width="384" height="110"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="R8p-6Q-TMT"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jzZ-NS-K2m">
-                                    <size key="itemSize" width="100" height="100"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="afF-OB-QlS" id="YIJ-97-298"/>
-                                    <outlet property="delegate" destination="afF-OB-QlS" id="pWm-g3-NtK"/>
-                                </connections>
-                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nT-ib-chz">
                                 <rect key="frame" x="325" y="157" width="51" height="30"/>
                                 <state key="normal" title="LogOut"/>
@@ -227,26 +209,32 @@
                                     <action selector="logOutButtonTapped:" destination="afF-OB-QlS" eventType="touchUpInside" id="98f-sL-lAX"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCx-FS-5Bl">
+                                <rect key="frame" x="20" y="157" width="44" height="30"/>
+                                <state key="normal" title="Follow"/>
+                                <connections>
+                                    <action selector="followButtonTapped:" destination="afF-OB-QlS" eventType="touchUpInside" id="KbB-Rl-2WX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="D9U-fd-of0" firstAttribute="leading" secondItem="XPV-YD-M9v" secondAttribute="trailing" constant="15" id="2Jh-5g-VL4"/>
+                            <constraint firstItem="qCx-FS-5Bl" firstAttribute="centerY" secondItem="3nT-ib-chz" secondAttribute="centerY" id="94e-d6-uk6"/>
                             <constraint firstItem="XPV-YD-M9v" firstAttribute="leading" secondItem="v6j-T0-wPV" secondAttribute="leading" constant="15" id="Irm-EX-Yel"/>
                             <constraint firstItem="v6j-T0-wPV" firstAttribute="trailing" secondItem="D9U-fd-of0" secondAttribute="trailing" constant="15" id="Ngi-cc-xmt"/>
                             <constraint firstItem="v6j-T0-wPV" firstAttribute="trailing" secondItem="3nT-ib-chz" secondAttribute="trailing" constant="38" id="TzB-mV-sU3"/>
                             <constraint firstItem="3nT-ib-chz" firstAttribute="top" secondItem="D9U-fd-of0" secondAttribute="bottom" constant="121" id="VdZ-gw-RXV"/>
-                            <constraint firstItem="xkk-eE-MOM" firstAttribute="leading" secondItem="v6j-T0-wPV" secondAttribute="leading" constant="15" id="X2L-bN-bQD"/>
                             <constraint firstItem="D9U-fd-of0" firstAttribute="top" secondItem="v6j-T0-wPV" secondAttribute="top" constant="15" id="cRV-J5-spj"/>
-                            <constraint firstItem="xkk-eE-MOM" firstAttribute="top" secondItem="3nT-ib-chz" secondAttribute="bottom" constant="8" id="gyt-OG-en2"/>
                             <constraint firstItem="XPV-YD-M9v" firstAttribute="top" secondItem="v6j-T0-wPV" secondAttribute="top" constant="15" id="swt-S8-PhZ"/>
-                            <constraint firstItem="v6j-T0-wPV" firstAttribute="trailing" secondItem="xkk-eE-MOM" secondAttribute="trailing" constant="15" id="vXU-lN-C8I"/>
+                            <constraint firstItem="qCx-FS-5Bl" firstAttribute="leading" secondItem="v6j-T0-wPV" secondAttribute="leading" constant="20" id="zGJ-ut-h6h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v6j-T0-wPV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="iIp-g2-ynZ"/>
                     <connections>
-                        <outlet property="collectionView" destination="xkk-eE-MOM" id="ubk-KL-jmL"/>
                         <outlet property="displayNameLabel" destination="D9U-fd-of0" id="GBM-NS-DEi"/>
+                        <outlet property="followButton" destination="qCx-FS-5Bl" id="kSb-9j-4Rt"/>
                         <outlet property="profileImageView" destination="XPV-YD-M9v" id="ILt-3a-mYl"/>
                         <segue destination="tJY-at-0wL" kind="showDetail" identifier="showLogin" id="YaP-O8-Khd"/>
                     </connections>
@@ -280,7 +268,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="245-I4-L66"/>
+        <segue reference="YaP-O8-Khd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

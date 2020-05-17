@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         //Create cleaned versions of the text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        UserDefaults.standard.set("\(email)", forKey: "email")
+        UserDefaults.standard.set("\(password)", forKey: "password")
         //signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (resukt, error) in
             if error != nil {
@@ -47,6 +49,7 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
                 
             } else {
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
                 homeViewController.modalPresentationStyle = .overFullScreen

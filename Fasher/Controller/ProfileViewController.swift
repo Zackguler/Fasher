@@ -15,9 +15,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var followButton: UIButton!
+    
+    var ref: DatabaseReference!
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
-       
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "password")
+        
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
@@ -30,33 +35,28 @@ class ProfileViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-           
-    
     
     var userUploads: [StorageReference?] = []
+    var userName = ""
+    var isFollowButtonHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setView()
-        setDelegates()
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference().child("images")
-        storageRef.listAll { (result, error) in
-            if let error = error {
-                print("error", error)
-            }
-            for prefix in result.prefixes {
-                print("prefix", prefix)
-            }
-            for item in result.items {
-                self.userUploads.append(item)
-                self.collectionView.reloadData()
-            }
+        ref = Database.database().reference()
+        if !userName.isEmpty {
+            displayNameLabel.text = userName
         }
+        followButton.isHidden = isFollowButtonHidden
     }
 
+    @IBAction func followButtonTapped(_ sender: Any) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        self.ref.child("users/\(uid)/followed/test").setValue("true")
+    }
 }
 
 
@@ -65,13 +65,6 @@ extension ProfileViewController {
     private func setView() {
         setProfilePicture()
         setDisplayName()
-        setCollectionViewLayout()
-    }
-    
-    private func setDelegates() {
-        self.collectionView.register(UINib(nibName: UserUploadCell.ReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: UserUploadCell.ReuseIdentifier)
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
     }
 }
 
@@ -88,15 +81,6 @@ extension ProfileViewController {
         if let displayName = Auth.auth().currentUser?.displayName {
             displayNameLabel.text = displayName
         }
-    }
-    
-    private func setCollectionViewLayout() {
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
-        
-        collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
 }

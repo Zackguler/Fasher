@@ -44,6 +44,7 @@ class SearchViewController: UIViewController {
             }
 
         })
+        self.view.endEditing(true)
     }
 }
 
@@ -63,13 +64,26 @@ extension SearchViewController: UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+            DispatchQueue.main.async {
+                profileViewController.userName = self.dataSource[indexPath.row]
+                profileViewController.modalPresentationStyle = .popover
+                profileViewController.isFollowButtonHidden = false
+                self.present(profileViewController, animated: true)
+            }
+        }
+        
+    }
 }
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text != "" {
             keyword = textField.text ?? ""
+        } else {
+            
         }
     }
 }

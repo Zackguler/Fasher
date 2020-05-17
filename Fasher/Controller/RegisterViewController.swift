@@ -106,7 +106,8 @@ class RegisterViewController: UIViewController {
                                 self.showError("Error saving user data")
                             }
                         }
-                        
+                        UserDefaults.standard.set("\(email)", forKey: "email")
+                        UserDefaults.standard.set("\(password)", forKey: "password")
                         // Transition to the home screen
                         self.transitionToHome()
                     }
