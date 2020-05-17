@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="displayNameLabel" destination="D9U-fd-of0" id="GBM-NS-DEi"/>
                         <outlet property="followButton" destination="qCx-FS-5Bl" id="kSb-9j-4Rt"/>
+                        <outlet property="logoutButton" destination="3nT-ib-chz" id="lcc-8l-gKh"/>
                         <outlet property="profileImageView" destination="XPV-YD-M9v" id="ILt-3a-mYl"/>
                         <segue destination="tJY-at-0wL" kind="showDetail" identifier="showLogin" id="YaP-O8-Khd"/>
                     </connections>

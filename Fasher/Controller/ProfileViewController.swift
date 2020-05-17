@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -39,6 +40,7 @@ class ProfileViewController: UIViewController {
     var userUploads: [StorageReference?] = []
     var userName = ""
     var isFollowButtonHidden = true
+    var logoutButtonHidden = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class ProfileViewController: UIViewController {
             displayNameLabel.text = userName
         }
         followButton.isHidden = isFollowButtonHidden
+        logoutButton.isHidden = logoutButtonHidden
     }
 
     @IBAction func followButtonTapped(_ sender: Any) {

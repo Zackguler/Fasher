@@ -71,6 +71,7 @@ extension SearchViewController: UITableViewDataSource {
                 profileViewController.userName = self.dataSource[indexPath.row]
                 profileViewController.modalPresentationStyle = .popover
                 profileViewController.isFollowButtonHidden = false
+                profileViewController.logoutButtonHidden = true
                 self.present(profileViewController, animated: true)
             }
         }
