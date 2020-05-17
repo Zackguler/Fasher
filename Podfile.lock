@@ -294,6 +294,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
@@ -350,6 +351,6 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: 63ce67102306059d53576cb1ef6e8cc8edb04107
+PODFILE CHECKSUM: 1842063eea3592c5b5d96ec525da5c0dec176b3f
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0

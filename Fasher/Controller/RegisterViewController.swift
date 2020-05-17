@@ -5,59 +5,127 @@
 //  Created by Hüseyin İyibaş on 9.05.2020.
 //  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
 //
-
+import FirebaseAuth
 import Firebase
 import UIKit
 
 class RegisterViewController: UIViewController {
-    // MARK: IBOUTLET
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextView!
-    @IBOutlet weak var retypePasswordTextField: UITextField!
-    @IBOutlet weak var informationLabel: UILabel!
-    
-    // MARK: IBACTION
-    @IBAction func registerButtonTapped(_ sender: Any) {
-        if passwordTextField.text != retypePasswordTextField.text {
-            showAlert(alert: "Passwords are not same")
-        } else {
-            guard let email = emailTextField.text, let password = passwordTextField.text else {
-                return
-            }
-
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-
-                if authResult != nil {
-                    self.informationLabel.isHidden = false
-                    self.informationLabel.text = "Registration is successful!"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } else {
-                    guard let error = error else { return }
-                    self.showAlert(alert: "\(error.localizedDescription)")
-                }
-            }
-        }
-    }
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var sighUpButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     // MARK: Variables
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpElements()
+    }
+    func setUpElements() {
+        
+            // Hide the error label
+            errorLabel.alpha = 0
+        
+            // Style the elements
+            Utilities.styleTextField(firstNameTextField)
+            Utilities.styleTextField(lastNameTextField)
+            Utilities.styleTextField(emailTextField)
+            Utilities.styleTextField(passwordTextField)
+            Utilities.styleFilledButton(sighUpButton)
+        }
+        
+        // Check the fields and validate that the data is correct. If everything is correct, this method returns nil. Otherwise, it returns the error message
+        func validateFields() -> String? {
+            
+            // Check that all fields are filled in
+            if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+                
+                return "Please fill in all fields."
+            }
+            
+            // Check if the password is secure
+            let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            if Utilities.isPasswordValid(cleanedPassword) == false {
+                // Password isn't secure enough
+                return "Please make sure your password is at least 8 characters, contains a special character and a number."
+            }
+            
+            return nil
+        }
+        
+
+        @IBAction func signUpTapped(_ sender: Any) {
+            
+            // Validate the fields
+            let error = validateFields()
+            
+            if error != nil {
+                
+                // There's something wrong with the fields, show error message
+                showError(error!)
+            }
+            else {
+                
+                // Create cleaned versions of the data
+                let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                // Create the user
+                Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+                    
+                    // Check for errors
+                    if err != nil {
+                        
+                        // There was an error creating the user
+                        self.showError("Error creating user")
+                    }
+                    else {
+                        
+                        // User was created successfully, now store the first name and last name
+                        let db = Firestore.firestore()
+                        
+                        db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
+                            
+                            if error != nil {
+                                // Show error message
+                                self.showError("Error saving user data")
+                            }
+                        }
+                        
+                        // Transition to the home screen
+                        self.transitionToHome()
+                    }
+                    
+                }
+                
+                
+                
+            }
+        }
+        
+        func showError(_ message:String) {
+            
+            errorLabel.text = message
+            errorLabel.alpha = 1
+        }
+        
+        func transitionToHome() {
+            
+            let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+            
+            view.window?.rootViewController = homeViewController
+            view.window?.makeKeyAndVisible()
+            
+        }
         
     }
-
-    private func showAlert(alert: String) {
-        let alertAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        let alertController = UIAlertController(title: "Alert", message: "\(alert)", preferredStyle: .alert)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
-    }
-}
