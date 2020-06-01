@@ -13,7 +13,8 @@ import UIKit
 
 class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     // MARK: Variables
-    var previousIndex = 0
+	@IBOutlet weak var tableView: UITableView!
+	var previousIndex = 0
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
     
@@ -31,6 +32,8 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImageP
             print(error.localizedDescription)
         }
         // all users
+
+		self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,3 +129,21 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UIImageP
     }
 }
 
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 10
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if let homeCell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as? HomeCell {
+			homeCell.selectionStyle = .none
+			homeCell.layoutIfNeeded()
+
+			return homeCell
+		}
+
+		return UITableViewCell()
+	}
+
+
+}

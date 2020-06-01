@@ -26,6 +26,10 @@
 		61EC6B48247183AF00FC569A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B47247183AF00FC569A /* SearchViewController.swift */; };
 		61EC6B4A247183BB00FC569A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B49247183BB00FC569A /* NotificationViewController.swift */; };
 		61EC6B4C2471AAA200FC569A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC6B4B2471AAA200FC569A /* UserCell.swift */; };
+		8E2F5D522485531B0092930A /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F5D502485531B0092930A /* HomeCell.swift */; };
+		8E2F5D532485531B0092930A /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F5D512485531B0092930A /* HomeCell.xib */; };
+		8E2F5D56248557180092930A /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F5D54248557180092930A /* NotificationCell.swift */; };
+		8E2F5D57248557180092930A /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F5D55248557180092930A /* NotificationCell.xib */; };
 		9A8870FE65DEA798B12DE832 /* Pods_Fasher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */; };
 		A141437A2470EA5E00C22E57 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14143792470EA5E00C22E57 /* MainVC.swift */; };
 		A1D03BDE2470D5B500D68B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D03BDC2470D5B500D68B71 /* Constants.swift */; };
@@ -55,6 +59,10 @@
 		61EC6B49247183BB00FC569A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		61EC6B4B2471AAA200FC569A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fasher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E2F5D502485531B0092930A /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		8E2F5D512485531B0092930A /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		8E2F5D54248557180092930A /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		8E2F5D55248557180092930A /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		8FFD10620579C82F896DF278 /* Pods-Fasher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.release.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.release.xcconfig"; sourceTree = "<group>"; };
 		A14143792470EA5E00C22E57 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		A1D03BDC2470D5B500D68B71 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -113,6 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				1D0EB14023C9D3CE0008E5E0 /* Main.storyboard */,
+				8E2F5D502485531B0092930A /* HomeCell.swift */,
+				8E2F5D512485531B0092930A /* HomeCell.xib */,
+				8E2F5D54248557180092930A /* NotificationCell.swift */,
+				8E2F5D55248557180092930A /* NotificationCell.xib */,
 				1D5C40F123DC827800025BF3 /* UserUploadCell.xib */,
 				612D6856246605D200EA3459 /* Authentication.storyboard */,
 			);
@@ -239,9 +251,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2F5D532485531B0092930A /* HomeCell.xib in Resources */,
 				612D6857246605D200EA3459 /* Authentication.storyboard in Resources */,
 				1D5C40F323DC827800025BF3 /* UserUploadCell.xib in Resources */,
 				1D0EB14723C9D3D20008E5E0 /* LaunchScreen.storyboard in Resources */,
+				8E2F5D57248557180092930A /* NotificationCell.xib in Resources */,
 				1D0EB16423CA08240008E5E0 /* GoogleService-Info.plist in Resources */,
 				1D0EB14423C9D3D20008E5E0 /* Assets.xcassets in Resources */,
 				1D0EB14223C9D3CE0008E5E0 /* Main.storyboard in Resources */,
@@ -307,9 +321,11 @@
 				A1D03BDF2470D5B500D68B71 /* Utilities.swift in Sources */,
 				61EC6B4C2471AAA200FC569A /* UserCell.swift in Sources */,
 				1D0EB15E23C9DD940008E5E0 /* TabBarController.swift in Sources */,
+				8E2F5D56248557180092930A /* NotificationCell.swift in Sources */,
 				61EC6B48247183AF00FC569A /* SearchViewController.swift in Sources */,
 				A141437A2470EA5E00C22E57 /* MainVC.swift in Sources */,
 				1D0EB16223C9DEFB0008E5E0 /* ProfileViewController.swift in Sources */,
+				8E2F5D522485531B0092930A /* HomeCell.swift in Sources */,
 				1D0EB13D23C9D3CE0008E5E0 /* SceneDelegate.swift in Sources */,
 				1D0EB16023C9DDB30008E5E0 /* HomeViewController.swift in Sources */,
 				1D0EB16623CA3C260008E5E0 /* Authentication.swift in Sources */,

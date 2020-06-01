@@ -6,7 +6,9 @@
 //  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 
-import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 import Kingfisher
 import UIKit
 
