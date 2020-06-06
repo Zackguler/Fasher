@@ -2,8 +2,8 @@
 //  HomeCell.swift
 //  Fasher
 //
-//  Created by Hüseyin İyibaş on 01/06/20.
-//  Copyright © 2020 Hüseyin İyibaş. All rights reserved.
+//  Created by Zekeriya Semih Güler on 01/06/20.
+//  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 
 import UIKit
