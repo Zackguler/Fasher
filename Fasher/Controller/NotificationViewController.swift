@@ -2,7 +2,7 @@
 //  NotificationViewController.swift
 //  Fasher
 //
-//  Created by Hüseyin İyibaş on 17.05.2020.
+//  Created by Zekeriya Semih Güler on 17.05.2020.
 //  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 

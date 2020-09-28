@@ -2,7 +2,7 @@
 //  RegisterViewController.swift
 //  Fasher
 //
-//  Created by Hüseyin İyibaş on 9.05.2020.
+//  Created by Zekeriya Semih Güler on 9.05.2020.
 //  Copyright © 2020 Zekeriya Semih Güler. All rights reserved.
 //
 import FirebaseAuth

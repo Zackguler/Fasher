@@ -87,7 +87,6 @@ extension ProfileViewController {
             displayNameLabel.text = displayName
         }
     }
-    
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -110,8 +109,6 @@ extension ProfileViewController: UICollectionViewDataSource {
                     if let url = url {
                         cell.setCell(url)
                     }
-                    
-                    
                 }
             }
             

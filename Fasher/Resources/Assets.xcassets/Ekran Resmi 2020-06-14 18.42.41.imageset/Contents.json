@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "original.jpg",
+      "filename" : "Ekran Resmi 2020-06-14 18.42.41.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "9441babc5a291089529a5725afc005d7.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "images.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

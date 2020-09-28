@@ -31,6 +31,7 @@
 		8E2F5D56248557180092930A /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F5D54248557180092930A /* NotificationCell.swift */; };
 		8E2F5D57248557180092930A /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F5D55248557180092930A /* NotificationCell.xib */; };
 		9A8870FE65DEA798B12DE832 /* Pods_Fasher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FEBC3E3033F342416A25D4 /* Pods_Fasher.framework */; };
+		A1162F1A24966C3C00E8C2DD /* ProfileImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1162F1924966C3C00E8C2DD /* ProfileImage.storyboard */; };
 		A141437A2470EA5E00C22E57 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14143792470EA5E00C22E57 /* MainVC.swift */; };
 		A1D03BDE2470D5B500D68B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D03BDC2470D5B500D68B71 /* Constants.swift */; };
 		A1D03BDF2470D5B500D68B71 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D03BDD2470D5B500D68B71 /* Utilities.swift */; };
@@ -64,6 +65,7 @@
 		8E2F5D54248557180092930A /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		8E2F5D55248557180092930A /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		8FFD10620579C82F896DF278 /* Pods-Fasher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fasher.release.xcconfig"; path = "Target Support Files/Pods-Fasher/Pods-Fasher.release.xcconfig"; sourceTree = "<group>"; };
+		A1162F1924966C3C00E8C2DD /* ProfileImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImage.storyboard; sourceTree = "<group>"; };
 		A14143792470EA5E00C22E57 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		A1D03BDC2470D5B500D68B71 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1D03BDD2470D5B500D68B71 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -121,12 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				1D0EB14023C9D3CE0008E5E0 /* Main.storyboard */,
-				8E2F5D502485531B0092930A /* HomeCell.swift */,
 				8E2F5D512485531B0092930A /* HomeCell.xib */,
-				8E2F5D54248557180092930A /* NotificationCell.swift */,
 				8E2F5D55248557180092930A /* NotificationCell.xib */,
 				1D5C40F123DC827800025BF3 /* UserUploadCell.xib */,
 				612D6856246605D200EA3459 /* Authentication.storyboard */,
+				A1162F1924966C3C00E8C2DD /* ProfileImage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -134,6 +135,8 @@
 		1D0EB15123C9D5C70008E5E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8E2F5D54248557180092930A /* NotificationCell.swift */,
+				8E2F5D502485531B0092930A /* HomeCell.swift */,
 				1D0EB15723C9D9270008E5E0 /* LoginViewController.swift */,
 				61EC6B4B2471AAA200FC569A /* UserCell.swift */,
 				1D0EB15B23C9DCA30008E5E0 /* AddViewController.swift */,
@@ -253,6 +256,7 @@
 			files = (
 				8E2F5D532485531B0092930A /* HomeCell.xib in Resources */,
 				612D6857246605D200EA3459 /* Authentication.storyboard in Resources */,
+				A1162F1A24966C3C00E8C2DD /* ProfileImage.storyboard in Resources */,
 				1D5C40F323DC827800025BF3 /* UserUploadCell.xib in Resources */,
 				1D0EB14723C9D3D20008E5E0 /* LaunchScreen.storyboard in Resources */,
 				8E2F5D57248557180092930A /* NotificationCell.xib in Resources */,

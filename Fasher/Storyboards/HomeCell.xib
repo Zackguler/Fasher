@@ -15,7 +15,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" translatesAutoresizingMaskIntoConstraints="NO" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dress" translatesAutoresizingMaskIntoConstraints="NO" id="Bsc-o7-Che">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images (1)" translatesAutoresizingMaskIntoConstraints="NO" id="Bsc-o7-Che">
                         <rect key="frame" x="0.0" y="50" width="320" height="290"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="uVU-TW-cpx"/>
@@ -96,13 +96,13 @@
             <connections>
                 <outlet property="profileImageView" destination="moL-SU-wjn" id="fam-F4-nQU"/>
             </connections>
-            <point key="canvasLocation" x="140.57971014492756" y="147.99107142857142"/>
+            <point key="canvasLocation" x="13" y="16"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dress" width="652" height="1024"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="original" width="750" height="627"/>
+        <image name="images (1)" width="204" height="248"/>
+        <image name="original" width="168.5" height="240"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
